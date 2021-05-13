@@ -5,7 +5,7 @@ import StackRoutes from './stack.routes';
 
 const Routes = () => (
   <NavigationContainer>
-    <StackRoutes />
+  <StackRoutes />
   </NavigationContainer>
 );
 
