@@ -43,7 +43,7 @@ export function PlantSave() {
             style={styles.tipImage}
           />
             <Text style={styles.tipText}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Lorem ipsasdasdsaum dolor, sit amet consectetur adipisicing elit.
             </Text>
         </View>
 
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   tipImage: {
-    width: 56,
-    height: 56,
+    width: 80,
+    height: 80,
   },
   tipText: {
     flex: 1,
