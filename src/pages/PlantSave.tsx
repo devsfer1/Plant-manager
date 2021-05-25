@@ -13,37 +13,58 @@ import { SvgFromUri } from 'react-native-svg';
 
 import { Button } from '../components/Button';
 
+import { getBottomSpace } from 'react-native-iphone-x-helper';
+import { useRoute } from '@react-navigation/core';
+
 import waterdrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
 import fonts from '../styles/fonts';
 
+interface Params {
+  plant: {
+    id: string,
+    name: string,
+    about: string,
+    water_tips: string,
+    photo: string,
+    environments: [string];
+    frequency: {
+      times: number,
+      repeat_every: string;
+    }
+  }
+}
+
 export function PlantSave() {
+  const route = useRoute();
+
+  const {plant} = route.params as Params;
+
   return (
     <View style={styles.container}>
       <View style={styles.plantInfo}>
         <SvgFromUri
-          uri=""
+          uri={plant.photo}
           height={150}
           width={150}
         />
 
         <Text style={styles.plantName}>
-          Nome da Planta
+          {plant.name}
         </Text>
         <Text style={styles.plantAbout}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, id. Dicta ducimus hic tempore fugiat numquam autem corporis ipsam quia reprehenderit voluptas totam.
+          {plant.about}
         </Text>
       </View>
 
-      <View style={StyleSheet.controller}>
+      <View style={styles.controller}>
         <View style={styles.tipContainer}>
           <Image
             source={waterdrop}
             style={styles.tipImage}
           />
             <Text style={styles.tipText}>
-              Lorem ipsasdasdsaum dolor, sit amet consectetur adipisicing elit.
+              {plant.water_tips}
             </Text>
         </View>
 
@@ -100,10 +121,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.blue_light,
     padding: 20,
+    borderRadius: 20,
+    position: 'relative',
+    bottom: 60,
   },
   tipImage: {
-    width: 80,
-    height: 80,
+    width: 56,
+    height: 56,
   },
   tipText: {
     flex: 1,
@@ -112,5 +136,12 @@ const styles = StyleSheet.create({
     color: colors.blue,
     fontSize: 17,
     textAlign: 'justify'
+  },
+  alertLabel: {
+    textAlign: 'center',
+    fontFamily: fonts.complement,
+    color: colors.heading,
+    fontSize: 12,
+    marginBottom: 5
   }
 });
