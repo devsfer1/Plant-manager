@@ -33,7 +33,7 @@
       "environments": ["living_room", "bedroom"],
       "frequency": {
         "times": 1,
-        "repeat_every": "day"
+        "repeat_every": "everyday"
       }
     },
     {
